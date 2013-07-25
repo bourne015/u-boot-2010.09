@@ -157,7 +157,7 @@ export	ARCH CPU BOARD VENDOR SOC
 
 # set default to nothing for native builds
 ifeq ($(HOSTARCH),$(ARCH))
-CROSS_COMPILE ?=
+CROSS_COMPILE ?= arm-linux-
 endif
 
 # load other configuration
@@ -2240,6 +2240,20 @@ smdk6400_config	:	unconfig
 		echo "RAM_TEXT = 0xc7e00000" >> $(obj)board/samsung/smdk6400/config.tmp;\
 	fi
 	@$(MKCONFIG) smdk6400 arm arm1176 smdk6400 samsung s3c64xx
+	@echo "CONFIG_NAND_U_BOOT = y" >> $(obj)include/config.mk
+
+ok6410_noUSB_config	\
+ok6410_config	:	unconfig
+	@mkdir -p $(obj)include $(obj)board/samsung/ok6410
+	@mkdir -p $(obj)nand_spl/board/samsung/ok6410
+	@echo "#define CONFIG_NAND_U_BOOT" > $(obj)include/config.h
+	@echo "CONFIG_NAND_U_BOOT = y" >> $(obj)include/config.mk
+	@if [ -z "$(findstring ok6410_noUSB_config,$@)" ]; then			\
+		echo "RAM_TEXT = 0x57e00000" >> $(obj)board/samsung/ok6410/config.tmp;\
+	else										\
+		echo "RAM_TEXT = 0xc7e00000" >> $(obj)board/samsung/ok6410/config.tmp;\
+	fi
+	@$(MKCONFIG) ok6410 arm arm1176 ok6410 samsung s3c64xx
 	@echo "CONFIG_NAND_U_BOOT = y" >> $(obj)include/config.mk
 
 #========================================================================

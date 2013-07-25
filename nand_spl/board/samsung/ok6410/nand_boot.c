@@ -1,0 +1,1 @@
+/home/fantao/work/u-boot-2010.09/nand_spl/nand_boot.c

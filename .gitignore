@@ -63,3 +63,12 @@ cscope.*
 /onenand_ipl/onenand-ipl*
 /onenand_ipl/board/*/onenand*
 /onenand_ipl/board/*/*.S
+
+# nand spl files
+/nand_spl/u-boot-spl
+/nand_spl/u-boot-spl-16k.bin
+/nand_spl/u-boot-spl.bin
+/nand_spl/u-boot-spl.map
+/nand_spl/u-boot.lds
+u-boot-nand.bin
+
