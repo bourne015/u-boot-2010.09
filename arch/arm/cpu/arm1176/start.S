@@ -213,7 +213,7 @@ skip_tcmdisable:
 	 */
 	bl	lowlevel_init		/* go setup pll,mux,memory */
 
-#if !define(CONFIG_SKIP_RELOCATE_UBOOT) && defined(CONFIG_6410_NOR_BOOT)
+#if !defined(CONFIG_SKIP_RELOCATE_UBOOT) && defined(CONFIG_6410_NOR_BOOT)
 relocate:				/* relocate U-Boot to RAM	    */
 	adr	r0, _start		/* r0 <- current position of code   */
 	ldr	r1, _TEXT_BASE		/* test if we run from flash or RAM */

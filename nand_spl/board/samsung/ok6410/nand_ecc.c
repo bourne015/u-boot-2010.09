@@ -1,1 +1,1 @@
-/home/fantao/work/u-boot-2010.09/drivers/mtd/nand/nand_ecc.c
+/home/tao/work/u-boot-2010.09/drivers/mtd/nand/nand_ecc.c
